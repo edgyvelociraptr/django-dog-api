@@ -19,4 +19,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+     path("newdogapp/", views.SnippetList.as_view()),
+    path("newdogapp/<int:pk>/", views.SnippetDetail.as_view()),
 ]
+
