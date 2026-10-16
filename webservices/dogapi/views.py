@@ -2,6 +2,7 @@ from django.shortcuts import render
 from dogapi.models import Dog
 from dogapi.models import Breed
 from dogapi.serializers import DogSerializer
+from dogapi.serializers import BreedSerializer
 from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
@@ -9,12 +10,12 @@ from rest_framework.decorators import api_view
 
 class BreedList(generics.ListCreateAPIView):
     queryset = Breed.objects.all()
-    serializer_class = DogSerializer
+    serializer_class = BreedSerializer
 
 
 class BreedDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Breed.objects.all()
-    serializer_class = DogSerializer
+    serializer_class = BreedSerializer
 
 class DogList(generics.ListCreateAPIView):
     queryset = Dog.objects.all()
@@ -37,7 +38,7 @@ def rest_get_dog(request, dog_id):
 @api_view(['GET'])
 def rest_get_breed(request, breed):
     try:
-        breed = Breed.objects.get(pk=breed)
+        breed = Breed.objects.get(breed)
         serializer = DogSerializer(breed)
         return Response(serializer.data)
     except Breed.DoesNotExist:

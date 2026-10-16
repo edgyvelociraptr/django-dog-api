@@ -33,7 +33,7 @@ class Breed(models.Model):
     friendliness = models.IntegerField(default = 1, validators=[MinValueValidator(1), MaxValueValidator(5)])                        
     trainability = models.IntegerField(default = 1, validators=[MinValueValidator(1), MaxValueValidator(5)])
     sheddingamount = models.IntegerField(default = 1, validators=[MinValueValidator(1), MaxValueValidator(5)])
-    excerciseneeds = models.IntegerField(default = 1, validators=[MinValueValidator(1), MaxValueValidator(5)])
+    exerciseneeds = models.IntegerField(default = 1, validators=[MinValueValidator(1), MaxValueValidator(5)])
 
 
     def __str__(self):
