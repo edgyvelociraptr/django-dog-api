@@ -21,4 +21,5 @@ from dogapi.views import rest_get_dog
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('rest/dog/<int:dog_id>/', rest_get_dog, name='rest_get_dog'),
+    path('rest/breed/<breed>/', rest_get_dog, name='rest_get_breed'),
 ]

@@ -33,3 +33,12 @@ def rest_get_dog(request, dog_id):
         return Response(serializer.data)
     except Dog.DoesNotExist:
         return Response({'error': 'Dog not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+def rest_get_breed(request, breed):
+    try:
+        breed = Breed.objects.get(pk=breed)
+        serializer = DogSerializer(breed)
+        return Response(serializer.data)
+    except Breed.DoesNotExist:
+        return Response({'error': 'Breed not found.'}, status=status.HTTP_404_NOT_FOUND)
